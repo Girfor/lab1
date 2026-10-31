@@ -1,0 +1,54 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore homework-5/tests/Campus.AccessControl.SanityTests/Campus.AccessControl.SanityTests.csproj
+      - name: Run unit tests (never connect to production from CI)
+        run: dotnet test homework-5/tests/Campus.AccessControl.SanityTests/Campus.AccessControl.SanityTests.csproj --no-restore --filter "Category!=ProductionSanity"
+
+  sql-migration-check:
+    name: sql-migration-check
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: campus
+          POSTGRES_USER: campus
+          POSTGRES_PASSWORD: campus-ci-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U campus -d campus"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PGPASSWORD: campus-ci-only
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare psql
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Run expand, backfill and rollback-only consistency probes
+        run: |
+          psql -h localhost -U campus -d campus -v ON_ERROR_STOP=1 -f homework-5/sql/00_demo_schema.sql
+          psql -h localhost -U campus -d campus -v ON_ERROR_STOP=1 -f homework-5/sql/01_expand.sql
+          psql -h localhost -U campus -d campus -v ON_ERROR_STOP=1 -f homework-5/sql/02_migrate.sql
+          psql -h localhost -U campus -d campus -v ON_ERROR_STOP=1 -f homework-5/sql/verify_migration.sql
+      - name: Validate approved contract
+        env:
+          PGOPTIONS: -c campus.contract_approved=yes
+        run: |
+          psql -h localhost -U campus -d campus -v ON_ERROR_STOP=1 -f homework-5/sql/03_contract.sql
+          psql -h localhost -U campus -d campus -v ON_ERROR_STOP=1 -c 'SELECT COUNT(*) FROM public."AccessPasses";'
