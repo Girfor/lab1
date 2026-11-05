@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "EnergyMeter API Demo (F5)": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "demo",
+      "applicationUrl": "http://127.0.0.1:5162",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

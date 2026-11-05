@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyMeter.Api", "src\EnergyMeter.Api\EnergyMeter.Api.csproj", "{A4C11015-C2DC-40A4-8F4B-AF6006F81B65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyMeter.Updater", "src\EnergyMeter.Updater\EnergyMeter.Updater.csproj", "{E65ECBC8-F606-4CF6-9FD9-5A86BC51B0D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyMeter.Offline", "src\EnergyMeter.Offline\EnergyMeter.Offline.csproj", "{97C7181C-04C2-43E8-883E-CCB5A0E31711}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyMeter.Security", "src\EnergyMeter.Security\EnergyMeter.Security.csproj", "{486F7C10-296B-496F-8AB5-89072D619124}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyMeter.Api.Tests", "tests\EnergyMeter.Api.Tests\EnergyMeter.Api.Tests.csproj", "{5FDF70CE-3C02-42B2-A5F5-FA440DD970F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4C11015-C2DC-40A4-8F4B-AF6006F81B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C11015-C2DC-40A4-8F4B-AF6006F81B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C11015-C2DC-40A4-8F4B-AF6006F81B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C11015-C2DC-40A4-8F4B-AF6006F81B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65ECBC8-F606-4CF6-9FD9-5A86BC51B0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65ECBC8-F606-4CF6-9FD9-5A86BC51B0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65ECBC8-F606-4CF6-9FD9-5A86BC51B0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65ECBC8-F606-4CF6-9FD9-5A86BC51B0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C7181C-04C2-43E8-883E-CCB5A0E31711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C7181C-04C2-43E8-883E-CCB5A0E31711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C7181C-04C2-43E8-883E-CCB5A0E31711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C7181C-04C2-43E8-883E-CCB5A0E31711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{486F7C10-296B-496F-8AB5-89072D619124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486F7C10-296B-496F-8AB5-89072D619124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486F7C10-296B-496F-8AB5-89072D619124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{486F7C10-296B-496F-8AB5-89072D619124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDF70CE-3C02-42B2-A5F5-FA440DD970F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDF70CE-3C02-42B2-A5F5-FA440DD970F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDF70CE-3C02-42B2-A5F5-FA440DD970F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDF70CE-3C02-42B2-A5F5-FA440DD970F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

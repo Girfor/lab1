@@ -1,12 +1,25 @@
-# Smart Campus CAMPUS-101 — homework 5
+# EnergyMeter — учебные проекты для Visual Studio
 
-The full ASP.NET Core + PostgreSQL assignment is in [`homework-5/`](homework-5/).
+Здесь собраны исходные C# проекты EnergyMeter. Каждая папка в каталоге [projects](projects) соответствует своему учебному проекту или его версии.
 
-- Report: [`homework-5/REPORT.md`](homework-5/REPORT.md)
-- Run instructions: [`homework-5/README.md`](homework-5/README.md)
-- GitHub Actions: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+## Версии для запуска по F5
 
-Commit message to use: `[CAMPUS-101] Add tracing tags and business logic`.
+| Проект | Файл для открытия |
+| --- | --- |
+| API, Swagger, CSRF | `projects/EnergyMeter_API_Swagger_CSRF_Demo_F5/EnergyMeter.Api.Demo.sln` |
+| Безопасность (DPAPI, BCrypt, X.509) | `projects/EnergyMeter_Security_Demo_F5/EnergyMeter.Security.Demo.sln` |
+| Офлайн-буфер, SQLite, EF Core, Polly | `projects/EnergyMeter_Offline_Demo_F5/EnergyMeter.Offline.sln` |
+| Автоматическое обновление | `projects/EnergyMeter_AutoUpdater_Demo_F5/EnergyMeter.Updater.sln` |
+| Backup и SAT | `projects/EnergyMeter_Backup_SAT_Demo_F5_v2/EnergyMeter.BackupSAT.Demo.sln` |
+| Общее решение (API, тесты, безопасность, offline и updater) | `projects/EnergyMeter_Full_VisualStudio_Solution/EnergyMeterPortfolio/EnergyMeterPortfolio.sln` |
+| ПР3, ПР4, ПР6 | `projects/EnergyMeter_Full_Solution/EnergyMeterProjects/EnergyMeter.sln` |
 
-The included Change Request is a proposed plan. No live production deployment,
-GitHub branch-protection change or public hosting is implied by these files.
+**Как запустить:** установить Visual Studio и .NET 8 SDK; открыть необходимый `.sln`, восстановить NuGet-пакеты и нажать F5. Если в проекте есть `README.md`, обратите внимание на его инструкции.
+
+## Другие сохранённые версии
+
+В каталоге `projects` также находятся предыдущие версии API, обновления, offline-модуля, безопасности и PowerShell-скриптов, а также исходники отдельных ПР3/ПР4.
+
+> Важно: проекты учебные. Тестовые пароли в тестах — только фиктивные данные. Для демонстрационного входа в ПР4 задайте собственный `Demo__Password` через переменные окружения. Реальных учётных данных и токенов репозиторий содержать не должен.
+
+Основная ветка `main` существующего репозитория `lab1` не изменялась.

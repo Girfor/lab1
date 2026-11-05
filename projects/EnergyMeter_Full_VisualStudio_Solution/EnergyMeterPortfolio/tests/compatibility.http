@@ -1,0 +1,17 @@
+@base = http://localhost:5000
+### Legacy client expects meterId, kwh and timestampUtc
+GET {{base}}/api/v1/readings
+Accept: application/json
+
+### New client accepts all v1 fields plus quality
+GET {{base}}/api/v2/readings
+Accept: application/json
+
+### Negative case: Production should not expose Swagger
+GET {{base}}/swagger/index.html
+
+### Negative case: anonymous write rejected
+POST {{base}}/api/v1/readings
+Content-Type: application/json
+
+{"meterId":"b6764e22-92e1-4be0-9f32-f40c3d849d12","kwh":10.2,"timestampUtc":"2026-11-05T00:00:00Z"}
